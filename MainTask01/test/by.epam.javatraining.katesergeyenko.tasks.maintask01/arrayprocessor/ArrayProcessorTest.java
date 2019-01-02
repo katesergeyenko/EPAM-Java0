@@ -1,5 +1,7 @@
 package by.epam.javatraining.katesergeyenko.tasks.maintask01.arrayprocessor;
 
+import by.epam.javatraining.katesergeyenko.tasks.maintask01.projectexceptions.ArrayNotDefinedException;
+import by.epam.javatraining.katesergeyenko.tasks.maintask01.projectexceptions.EmptyArrayException;
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
@@ -8,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 public class ArrayProcessorTest {
     // Test findMinimum()
     @Test
-    public void testFindMinimum() {
+    public void testFindMinimum() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{5, 3, 1, -6, 1, 2};
         double expected = -6;
         double actual = ArrayProcessor.findMinimum(array);
@@ -16,7 +18,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testFindMinimum2() {
+    public void testFindMinimum2() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{0};
         double expected = 0;
         double actual = ArrayProcessor.findMinimum(array);
@@ -24,7 +26,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testFindMinimum3() {
+    public void testFindMinimum3() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{5};
         double expected = 5;
         double actual = ArrayProcessor.findMinimum(array);
@@ -33,7 +35,7 @@ public class ArrayProcessorTest {
 
     // Test findMaximum()
     @Test
-    public void testFindMaximum() {
+    public void testFindMaximum() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{5, 3, 1, -6, 1, 2, 5.9};
         double expected = 5.9;
         double actual = ArrayProcessor.findMaximum(array);
@@ -41,7 +43,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testFindMaximum2() {
+    public void testFindMaximum2() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{0};
         double expected = 0;
         double actual = ArrayProcessor.findMaximum(array);
@@ -49,7 +51,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testFindMaximum3() {
+    public void testFindMaximum3() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{5};
         double expected = 5;
         double actual = ArrayProcessor.findMaximum(array);
@@ -58,7 +60,7 @@ public class ArrayProcessorTest {
 
     // Test calculateAverageArithmetical()
     @Test
-    public void testCalculateAverageArithmetical() {
+    public void testCalculateAverageArithmetical() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{1, 3, 5, -3, 4};
         double expected = 2;
         double actual = ArrayProcessor.calculateAverageArithmetical(array);
@@ -67,7 +69,7 @@ public class ArrayProcessorTest {
 
     // Test calculateAverageGeometrical()
     @Test
-    public void testCalculateAverageGeometrical() {
+    public void testCalculateAverageGeometrical() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{1, 2, 3, 4, 5, 6};
         double expected = 2.99379517;
         double actual = ArrayProcessor.calculateAverageGeometrical(array);
@@ -76,7 +78,7 @@ public class ArrayProcessorTest {
 
     // Test isSorted()
     @Test
-    public void testIsSorted() {
+    public void testIsSorted() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{1, 2, 3, 4, 5, 6};
         boolean actual = ArrayProcessor.isSorted(array);
         boolean expected = true;
@@ -84,7 +86,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testIsSorted2() {
+    public void testIsSorted2() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{0};
         boolean actual = ArrayProcessor.isSorted(array);
         boolean expected = true;
@@ -92,7 +94,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testIsSorted3() {
+    public void testIsSorted3() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{1, 1, 1, 1};
         boolean actual = ArrayProcessor.isSorted(array);
         boolean expected = true;
@@ -100,7 +102,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testIsSorted4() {
+    public void testIsSorted4() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{1, 2, 3, 4, 5};
         boolean actual = ArrayProcessor.isSorted(array);
         boolean expected = true;
@@ -108,7 +110,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testIsSorted5() {
+    public void testIsSorted5() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{5, 4, 3, 2, 1};
         boolean actual = ArrayProcessor.isSorted(array);
         boolean expected = true;
@@ -116,7 +118,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testIsSorted6() {
+    public void testIsSorted6() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{1, 1, 1, 1, 2};
         boolean actual = ArrayProcessor.isSorted(array);
         boolean expected = true;
@@ -124,7 +126,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testIsSorted7() {
+    public void testIsSorted7() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{1, 1, 1, 1, 0};
         boolean actual = ArrayProcessor.isSorted(array);
         boolean expected = true;
@@ -132,7 +134,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testIsSorted8() {
+    public void testIsSorted8() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{0, 0, 1, 1, 1};
         boolean actual = ArrayProcessor.isSorted(array);
         boolean expected = true;
@@ -140,7 +142,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testIsSorted9() {
+    public void testIsSorted9() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{1, 1, 2, 2, 3, 3};
         boolean actual = ArrayProcessor.isSorted(array);
         boolean expected = true;
@@ -148,7 +150,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testIsSorted10() {
+    public void testIsSorted10() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{1, 1, 2, 2, 3, 3, 1, 1};
         boolean actual = ArrayProcessor.isSorted(array);
         boolean expected = false;
@@ -157,7 +159,7 @@ public class ArrayProcessorTest {
 
     //Test findLocalMinimum()
     @Test
-    public void testFindLocalMinimum() {
+    public void testFindLocalMinimum() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{1, 1, 1, 1};
         int actual = ArrayProcessor.findLocalMinimum(array);
         int expected = -1;
@@ -165,7 +167,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testFindLocalMinimum2() {
+    public void testFindLocalMinimum2() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{5, 5, 5, 7, 3, 8};
         int actual = ArrayProcessor.findLocalMinimum(array);
         int expected = 4;
@@ -173,7 +175,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testFindLocalMinimum3() {
+    public void testFindLocalMinimum3() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{1, 2, 3, 4, 5};
         int actual = ArrayProcessor.findLocalMinimum(array);
         int expected = 0;
@@ -181,7 +183,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testFindLocalMinimum4() {
+    public void testFindLocalMinimum4() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{5, 4, 3, 2, 1};
         int actual = ArrayProcessor.findLocalMinimum(array);
         int expected = 4;
@@ -190,7 +192,7 @@ public class ArrayProcessorTest {
 
     //Test findLocalMaximum()
     @Test
-    public void testFindLocalMaximum() {
+    public void testFindLocalMaximum() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{1, 1, 1, 1};
         int actual = ArrayProcessor.findLocalMaximum(array);
         int expected = -1;
@@ -198,7 +200,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testFindLocalMaximum2() {
+    public void testFindLocalMaximum2() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{5, 5, 5, 7, 3, 8, 7};
         int actual = ArrayProcessor.findLocalMaximum(array);
         int expected = 3;
@@ -206,7 +208,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testFindLocalMaximum3() {
+    public void testFindLocalMaximum3() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{1, 2, 3, 4, 5};
         int actual = ArrayProcessor.findLocalMaximum(array);
         int expected = 4;
@@ -214,7 +216,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testFindLocalMaximum4() {
+    public void testFindLocalMaximum4() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{5, 4, 3, 2, 1};
         int actual = ArrayProcessor.findLocalMaximum(array);
         int expected = 0;
@@ -223,7 +225,7 @@ public class ArrayProcessorTest {
 
     // Test findElementLinearSearch()
     @Test
-    public void testFindElementLinearSearch() {
+    public void testFindElementLinearSearch() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{5, 4, 3, 2, 1};
         int actual = ArrayProcessor.findElementLinearSearch(array, 3);
         int expected = 2;
@@ -231,7 +233,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testFindElementLinearSearch2() {
+    public void testFindElementLinearSearch2() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{5, 4, 7, 2, 1};
         int actual = ArrayProcessor.findElementLinearSearch(array, 3);
         int expected = -1;
@@ -240,7 +242,7 @@ public class ArrayProcessorTest {
 
     //Task findElementBinarySearch()
     @Test
-    public void testFindElementBinarySearch() {
+    public void testFindElementBinarySearch() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{1, 2, 3, 4, 5};
         int actual = ArrayProcessor.findElementBinarySearch(array, 3);
         int expected = 2;
@@ -248,7 +250,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testFindElementBinarySearch2() {
+    public void testFindElementBinarySearch2() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{1, 2, 3, 4, 5};
         int actual = ArrayProcessor.findElementBinarySearch(array, 10);
         int expected = -1;
@@ -256,7 +258,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testFindElementBinarySearch3() {
+    public void testFindElementBinarySearch3() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{1, 2, 3, 4, 5};
         int actual = ArrayProcessor.findElementBinarySearch(array, 1);
         int expected = 0;
@@ -264,7 +266,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testFindElementBinarySearch4() {
+    public void testFindElementBinarySearch4() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{1, 2, 3, 4, 5};
         int actual = ArrayProcessor.findElementBinarySearch(array, 5);
         int expected = 4;
@@ -272,7 +274,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testFindElementBinarySearch5() {
+    public void testFindElementBinarySearch5() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{1, 2, 3, 4, 5, 6};
         int actual = ArrayProcessor.findElementBinarySearch(array, 3);
         int expected = 2;
@@ -280,7 +282,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testFindElementBinarySearch6() {
+    public void testFindElementBinarySearch6() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{1, 2, 3, 4, 5, 6};
         int actual = ArrayProcessor.findElementBinarySearch(array, 4);
         int expected = 3;
@@ -288,7 +290,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testFindElementBinarySearch7() {
+    public void testFindElementBinarySearch7() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{1, 2, 3, 4, 5, 6};
         int actual = ArrayProcessor.findElementBinarySearch(array, 1);
         int expected = 0;
@@ -296,7 +298,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testFindElementBinarySearch8() {
+    public void testFindElementBinarySearch8() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{1, 2, 3, 4, 5, 6};
         int actual = ArrayProcessor.findElementBinarySearch(array, 6);
         int expected = 5;
@@ -305,7 +307,7 @@ public class ArrayProcessorTest {
 
     //Test reverseElements()
     @Test
-    public void testReverseElements() {
+    public void testReverseElements() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{5, 4, 7, 2, 1};
         double[] actual = ArrayProcessor.reverseElements(array);
         double[] expected = {1, 2, 7, 4, 5};
@@ -313,7 +315,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testReverseElements2() {
+    public void testReverseElements2() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{-4, -6, 8, 6, -7, 0};
         double[] actual = ArrayProcessor.reverseElements(array);
         double[] expected = {0, -7, 6, 8, -6, -4};
@@ -321,7 +323,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testReverseElements3() {
+    public void testReverseElements3() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{-1};
         double[] actual = ArrayProcessor.reverseElements(array);
         double[] expected = {-1};
@@ -330,7 +332,7 @@ public class ArrayProcessorTest {
 
     // Test sortElementsBubbleSortAscending()
     @Test
-    public void testSortElementsBubbleSortAscending() {
+    public void testSortElementsBubbleSortAscending() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{-1};
         double[] actual = ArrayProcessor.sortElementsBubbleSortAscending(array);
         double[] expected = {-1};
@@ -338,7 +340,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testSortElementsBubbleSortAscending2() {
+    public void testSortElementsBubbleSortAscending2() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{-1, 4, 5, 2, 3};
         double[] actual = ArrayProcessor.sortElementsBubbleSortAscending(array);
         double[] expected = {-1, 2, 3, 4, 5};
@@ -347,7 +349,7 @@ public class ArrayProcessorTest {
 
     // Test sortElementsBubbleSortDescending()
     @Test
-    public void testSortElementsBubbleSortDescending() {
+    public void testSortElementsBubbleSortDescending() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{-1};
         double[] actual = ArrayProcessor.sortElementsBubbleSortDescending(array);
         double[] expected = {-1};
@@ -355,7 +357,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testSortElementsBubbleSortDescending2() {
+    public void testSortElementsBubbleSortDescending2() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{-1, 4, 5, 2, 3};
         double[] actual = ArrayProcessor.sortElementsBubbleSortDescending(array);
         double[] expected = {5, 4, 3, 2, -1};
@@ -364,7 +366,7 @@ public class ArrayProcessorTest {
 
     // Test sortElementsInsertionSortAscending()
     @Test
-    public void testSortElementsInsertionSortAscending() {
+    public void testSortElementsInsertionSortAscending() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{-1};
         double[] actual = ArrayProcessor.sortElementsInsertionSortAscending(array);
         double[] expected = {-1};
@@ -372,7 +374,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testSortElementsInsertionSortAscending2() {
+    public void testSortElementsInsertionSortAscending2() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{-1, 4, 5, 2, 3};
         double[] actual = ArrayProcessor.sortElementsInsertionSortAscending(array);
         double[] expected = {-1, 2, 3, 4, 5};
@@ -381,7 +383,7 @@ public class ArrayProcessorTest {
 
     // Test sortElementsInsertionSortDescending()
     @Test
-    public void testSortElementsInsertionSortDescending() {
+    public void testSortElementsInsertionSortDescending() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{-1};
         double[] actual = ArrayProcessor.sortElementsInsertionSortDescending(array);
         double[] expected = {-1};
@@ -389,7 +391,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testSortElementsInsertionSortDescending2() {
+    public void testSortElementsInsertionSortDescending2() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{-1, 4, 5, 2, 3};
         double[] actual = ArrayProcessor.sortElementsInsertionSortDescending(array);
         double[] expected = {5, 4, 3, 2, -1};
@@ -398,7 +400,7 @@ public class ArrayProcessorTest {
 
     // Test sortElementsMergeSortAscending()
     @Test
-    public void testSortElementsMergeSortAscending() {
+    public void testSortElementsMergeSortAscending() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{-1};
         double[] actual = ArrayProcessor.sortElementsMergeSortAscending(array, 0, array.length - 1);
         double[] expected = {-1};
@@ -406,7 +408,7 @@ public class ArrayProcessorTest {
     }
 
     @Test
-    public void testSortElementsMergeSortAscending2() {
+    public void testSortElementsMergeSortAscending2() throws ArrayNotDefinedException, EmptyArrayException {
         double array[] = new double[]{-1, 4, 5, 2, 3};
         double[] actual = ArrayProcessor.sortElementsMergeSortAscending(array, 0 , array.length - 1);
         double[] expected = {-1, 2, 3, 4, 5};

@@ -1,11 +1,14 @@
 package by.epam.javatraining.katesergeyenko.tasks.maintask01.logger;
 
-public class ConsoleLogger implements Logger.ILogger {
+import org.apache.log4j.FileAppender;
+
+public class FileLogger implements Logger.ILogger {
     private org.apache.log4j.Logger logger;
 
-    public ConsoleLogger () {
+    public FileLogger () {
         //logger = org.apache.log4j.Logger.getLogger(name);
-        logger = org.apache.log4j.Logger.getLogger("consoleLogger");
+        logger = org.apache.log4j.Logger.getLogger("fileLogger");
+        //logger.addAppender(new FileAppender());
     }
 
     @Override
@@ -33,3 +36,4 @@ public class ConsoleLogger implements Logger.ILogger {
         logger.fatal(string);
     }
 }
+

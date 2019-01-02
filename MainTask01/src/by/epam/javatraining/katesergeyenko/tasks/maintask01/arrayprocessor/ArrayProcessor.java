@@ -20,8 +20,28 @@
 
 package by.epam.javatraining.katesergeyenko.tasks.maintask01.arrayprocessor;
 
+import by.epam.javatraining.katesergeyenko.tasks.maintask01.logger.ConsoleLogger;
+import by.epam.javatraining.katesergeyenko.tasks.maintask01.logger.Logger;
+import by.epam.javatraining.katesergeyenko.tasks.maintask01.projectexceptions.ArrayNotDefinedException;
+import by.epam.javatraining.katesergeyenko.tasks.maintask01.projectexceptions.EmptyArrayException;
+
 public class ArrayProcessor {
-    public static double findMinimum(double[] array) {
+    static final Logger.ILogger consoleLogger = new ConsoleLogger();
+
+    static void checkArray(double[] array) throws ArrayNotDefinedException, EmptyArrayException {
+        if (array == null) {
+            consoleLogger.error("Array is not defined exception");
+            throw new ArrayNotDefinedException();
+        }
+        if (array.length == 0) {
+            consoleLogger.error("Array is empty exception");
+            throw new EmptyArrayException();
+        }
+    }
+
+    public static double findMinimum(double[] array) throws ArrayNotDefinedException, EmptyArrayException {
+        checkArray(array);
+
         double result = array[0];
 
         for (int i = 1; i < array.length; i++) {
@@ -33,7 +53,9 @@ public class ArrayProcessor {
        return result;
     }
 
-    public static double findMaximum(double[] array) {
+    public static double findMaximum(double[] array) throws ArrayNotDefinedException, EmptyArrayException {
+        checkArray(array);
+
         double result = array[0];
 
         for (int i = 1; i < array.length; i++) {
@@ -45,7 +67,9 @@ public class ArrayProcessor {
         return result;
     }
 
-    public static double calculateAverageArithmetical(double[] array) {
+    public static double calculateAverageArithmetical(double[] array) throws ArrayNotDefinedException, EmptyArrayException {
+        checkArray(array);
+
         double result = 0;
 
         for (int i = 0; i < array.length; i++) {
@@ -55,7 +79,9 @@ public class ArrayProcessor {
         return result;
     }
 
-    public static double calculateAverageGeometrical(double[] array) {
+    public static double calculateAverageGeometrical(double[] array) throws ArrayNotDefinedException, EmptyArrayException {
+        checkArray(array);
+
         double result = 1;
 
         for (int i = 0; i < array.length; i++) {
@@ -66,7 +92,9 @@ public class ArrayProcessor {
         return result;
     }
 
-    public static boolean isSorted(double[] array) {
+    public static boolean isSorted(double[] array) throws ArrayNotDefinedException, EmptyArrayException {
+        checkArray(array);
+
         boolean result = false;
         int ascending = 0;
         int descending = 0;
@@ -85,7 +113,9 @@ public class ArrayProcessor {
         return result;
     }
 
-    public static int findLocalMinimum(double[] array) {
+    public static int findLocalMinimum(double[] array) throws ArrayNotDefinedException, EmptyArrayException {
+        checkArray(array);
+
         int result = -1;
 
         if (array[0] < array[1]) {
@@ -106,7 +136,9 @@ public class ArrayProcessor {
         return result;
     }
 
-    public static int findLocalMaximum(double[] array) {
+    public static int findLocalMaximum(double[] array) throws ArrayNotDefinedException, EmptyArrayException {
+        checkArray(array);
+
         int result = -1;
 
         if (array[0] > array[1]) {
@@ -127,7 +159,9 @@ public class ArrayProcessor {
         return result;
     }
 
-    public static int findElementLinearSearch(double[] array, double element) {
+    public static int findElementLinearSearch(double[] array, double element) throws ArrayNotDefinedException, EmptyArrayException {
+        checkArray(array);
+
         int result = -1;
 
         for (int i = 0; i < array.length; i++) {
@@ -140,7 +174,9 @@ public class ArrayProcessor {
         return result;
     }
 
-    public static int findElementBinarySearch(double[] sortedArray, double element) {
+    public static int findElementBinarySearch(double[] sortedArray, double element) throws ArrayNotDefinedException, EmptyArrayException {
+        checkArray(sortedArray);
+
         int result = -1;
         int left = 0;
         int right = sortedArray.length;
@@ -161,7 +197,9 @@ public class ArrayProcessor {
         return result;
     }
 
-    public static double[] reverseElements(double[] array) {
+    public static double[] reverseElements(double[] array) throws ArrayNotDefinedException, EmptyArrayException {
+        checkArray(array);
+
         for (int i = 0; i < array.length / 2; i++) {
             array[i] += array[array.length - 1 - i];
             array[array.length - 1 - i] = array[i] - array[array.length -  1 - i];
@@ -171,7 +209,9 @@ public class ArrayProcessor {
         return array;
     }
 
-    public static double[] sortElementsBubbleSortAscending(double[] array) {
+    public static double[] sortElementsBubbleSortAscending(double[] array) throws ArrayNotDefinedException, EmptyArrayException {
+        checkArray(array);
+
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length - 1; j++) {
                 if (array[j] > array[j + 1]) {
@@ -185,7 +225,9 @@ public class ArrayProcessor {
         return array;
     }
 
-    public static double[] sortElementsBubbleSortDescending(double[] array) {
+    public static double[] sortElementsBubbleSortDescending(double[] array) throws ArrayNotDefinedException, EmptyArrayException {
+        checkArray(array);
+
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length - 1; j++) {
                 if (array[j] < array[j + 1]) {
@@ -199,7 +241,9 @@ public class ArrayProcessor {
         return array;
     }
 
-    public static double[] sortElementsInsertionSortAscending(double[] array) {
+    public static double[] sortElementsInsertionSortAscending(double[] array) throws ArrayNotDefinedException, EmptyArrayException {
+        checkArray(array);
+
         double separator;
         int j;
 
@@ -218,7 +262,9 @@ public class ArrayProcessor {
         return array;
     }
 
-    public static double[] sortElementsInsertionSortDescending(double[] array) {
+    public static double[] sortElementsInsertionSortDescending(double[] array) throws ArrayNotDefinedException, EmptyArrayException {
+        checkArray(array);
+
         double separator;
         int j;
 
@@ -237,7 +283,9 @@ public class ArrayProcessor {
         return array;
     }
 
-    public static double[] sortElementsMergeSortAscending(double[] array, int left, int right) {
+    public static double[] sortElementsMergeSortAscending(double[] array, int left, int right) throws ArrayNotDefinedException, EmptyArrayException {
+        checkArray(array);
+
         if (right <= left) {
             return array;
         }
