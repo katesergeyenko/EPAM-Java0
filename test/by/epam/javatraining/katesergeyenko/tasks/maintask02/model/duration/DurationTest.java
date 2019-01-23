@@ -73,4 +73,22 @@ public class DurationTest {
         Duration expected = new Duration(0, 0, 1);
         Assert.assertEquals(actual, expected);
     }
+
+    // test convertTotalSecondsToHoursMinutesSeconds()
+    @Test
+    public void  testConvertTotalSecondsToHoursMinutesSeconds() throws NegativeDurationException, EmptyDurationException {
+        Duration duration = new Duration(5459);
+        duration.convertTotalSecondsToHoursMinutesSeconds();
+        Duration expected = new Duration(1, 30, 59);
+        Assert.assertEquals(duration, expected);
+    }
+
+    // test convertHoursMinutesSecondsToTotalSeconds()
+    @Test
+    public void  testConvertHoursMinutesSecondsToTotalSeconds() throws NegativeDurationException, EmptyDurationException {
+        Duration duration = new Duration(1, 30, 59);
+        duration.convertTotalSecondsToHoursMinutesSeconds();
+        Duration expected = new Duration(5459);
+        Assert.assertEquals(duration, expected);
+    }
 }

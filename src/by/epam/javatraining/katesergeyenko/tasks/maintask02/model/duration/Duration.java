@@ -8,15 +8,14 @@ public class Duration {
     public static final int MINUTES_IN_HOUR = 60;
 
     private int totalSeconds;
-
     private int hours;
     private int minutes;
     private int seconds;
 
     public Duration() {
-        hours = 0;
-        minutes = 0;
-        seconds = 0;
+        this.hours = 10;
+        this.minutes = 20;
+        this.seconds = 30;
     }
 
     public Duration(int totalSeconds) throws  EmptyDurationException, NegativeDurationException {
@@ -24,9 +23,9 @@ public class Duration {
             throw new EmptyDurationException();
         } else if (totalSeconds < 0) {
             throw new NegativeDurationException();
-        } else {
-            this.totalSeconds = totalSeconds;
         }
+        this.totalSeconds = totalSeconds;
+        convertTotalSecondsToHoursMinutesSeconds();
     }
 
     public Duration(int hours, int minutes, int seconds) throws EmptyDurationException, NegativeDurationException {
@@ -34,12 +33,11 @@ public class Duration {
             throw new EmptyDurationException();
         } else if (hours < 0 || minutes < 0 || seconds < 0) {
             throw new NegativeDurationException();
-        } else {
+        }
             this.hours = hours;
             this.minutes = minutes;
             this.seconds = seconds;
             convertHoursMinutesSecondsToTotalSeconds();
-        }
     }
 
     public Duration(Duration duration) {
@@ -82,8 +80,8 @@ public class Duration {
 
     @Override
     public String toString() {
-        convertTotalSecondsToHoursMinutesSeconds();
-        return getClass().getSimpleName() + ": hours = " + hours + "; minutes = " + minutes + "; seconds = " + seconds + "; ";
+        return getClass().getSimpleName() + ": hours = " + hours + "; minutes = " + minutes
+                + "; seconds = " + seconds + "; total seconds = " + totalSeconds + "; ";
     }
 
     @Override
@@ -126,7 +124,7 @@ public class Duration {
     }
 
     public void convertHoursMinutesSecondsToTotalSeconds() {
-        this.totalSeconds = hours * MINUTES_IN_HOUR * SECONDS_IN_MINUTE
-                + minutes * SECONDS_IN_MINUTE + seconds;
+        this.totalSeconds = this.hours * MINUTES_IN_HOUR * SECONDS_IN_MINUTE
+                + this.minutes * SECONDS_IN_MINUTE + this.seconds;
     }
 }

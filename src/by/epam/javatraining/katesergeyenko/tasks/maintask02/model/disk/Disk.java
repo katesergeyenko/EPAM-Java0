@@ -32,7 +32,7 @@ public class Disk {
     }
 
     public Disk(String name, Duration duration, List<Composition> compositions)
-            throws EmptyNameException {
+            throws EmptyNameException  {
         if (name == null || name.length() == 0) {
             throw new EmptyNameException();
         } else {

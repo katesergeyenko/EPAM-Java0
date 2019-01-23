@@ -1,20 +1,22 @@
 package by.epam.javatraining.katesergeyenko.tasks.maintask02.model.disk;
 
+import by.epam.javatraining.katesergeyenko.tasks.maintask02.exceptions.EmptyDurationException;
+import by.epam.javatraining.katesergeyenko.tasks.maintask02.exceptions.NegativeDurationException;
 import by.epam.javatraining.katesergeyenko.tasks.maintask02.model.composition.Composition;
 import by.epam.javatraining.katesergeyenko.tasks.maintask02.model.duration.DurationManager;
 
 import java.util.Collections;
 
 public class DiskManager {
-    public static boolean addComposition(Disk disk, Composition composition) {
+    public static boolean addComposition(Disk disk, Composition composition) throws NegativeDurationException, EmptyDurationException {
         disk.setNumberOfCompositions(disk.getNumberOfCompositions() + 1);
-        DurationManager.durationsSum(disk.getDuration(), composition.getDuration());
+        disk.setDuration(DurationManager.durationsSum(disk.getDuration(), composition.getDuration()));
         return disk.getCompositions().add(composition);
     }
 
-    public static boolean removeComposition(Disk disk, Composition composition) {
+    public static boolean removeComposition(Disk disk, Composition composition) throws NegativeDurationException, EmptyDurationException {
         disk.setNumberOfCompositions(disk.getNumberOfCompositions() - 1);
-        DurationManager.durationsSub(disk.getDuration(), composition.getDuration());
+        disk.setDuration(DurationManager.durationsSub(disk.getDuration(), composition.getDuration()));
         return disk.getCompositions().remove(composition);
     }
 
