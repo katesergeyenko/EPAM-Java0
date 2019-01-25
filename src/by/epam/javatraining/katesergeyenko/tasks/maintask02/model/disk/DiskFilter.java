@@ -20,7 +20,7 @@ public class DiskFilter {
         return resultList;
     }
 
-    public List<Composition> filterByMusitian(Disk disk, String low, String high) {
+    public List<Composition> filterByMusician(Disk disk, String low, String high) {
         List<Composition> resultList = new LinkedList<>();
 
         for (Composition composition : disk.getCompositions()) {
@@ -44,11 +44,11 @@ public class DiskFilter {
         return resultList;
     }
 
-    public List<Composition> filterByDuration(Disk disk, int low, int high) {
+    public List<Composition> filterByDuration(Disk disk, Duration low, Duration high) {
         List<Composition> resultList = new LinkedList<>();
 
         for (Composition composition : disk.getCompositions()) {
-            if (composition.getDuration().getTotalSeconds() >= low && composition.getDuration().getTotalSeconds() <= high) {
+            if (composition.getDuration().getTotalSeconds() >= low.getTotalSeconds() && composition.getDuration().getTotalSeconds() <= high.getTotalSeconds()) {
                 resultList.add(composition);
             }
         }

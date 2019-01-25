@@ -1,6 +1,6 @@
 package by.epam.javatraining.katesergeyenko.tasks.maintask02.view.scanner;
 
-public class ConsoleScanner implements Scanner.Scannable {
+public class ConsoleScanner implements Scannable {
     @Override
     public String scanString() {
         String string = "";

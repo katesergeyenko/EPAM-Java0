@@ -3,7 +3,7 @@ package by.epam.javatraining.katesergeyenko.tasks.maintask02.view.scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public class FileScanner implements Scanner.Scannable {
+public class FileScanner implements Scannable {
     String fileName;
 
     public FileScanner(String fileName) {

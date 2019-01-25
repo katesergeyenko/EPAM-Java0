@@ -3,6 +3,7 @@ package by.epam.javatraining.katesergeyenko.tasks.maintask02.model.disk;
 import by.epam.javatraining.katesergeyenko.tasks.maintask02.exceptions.*;
 import by.epam.javatraining.katesergeyenko.tasks.maintask02.model.composition.Composition;
 import by.epam.javatraining.katesergeyenko.tasks.maintask02.model.duration.Duration;
+import by.epam.javatraining.katesergeyenko.tasks.maintask02.model.duration.DurationManager;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -11,13 +12,11 @@ public class Disk {
     private String name;
     private Duration duration;
     private List<Composition> compositions;
-    private int numberOfCompositions;
 
     public Disk() {
         name = "Unknown name";
         duration = new Duration();
         compositions = new LinkedList<>();
-        numberOfCompositions = compositions.size();
     }
 
     public Disk(String name) throws EmptyNameException {
@@ -27,19 +26,20 @@ public class Disk {
             this.name = name;
             this.duration = new Duration();
             this.compositions = new LinkedList<>();
-            this.numberOfCompositions = this.compositions.size();
         }
     }
 
-    public Disk(String name, Duration duration, List<Composition> compositions)
-            throws EmptyNameException  {
+    public Disk(String name, List<Composition> compositions)
+            throws EmptyNameException, NegativeDurationException, EmptyDurationException {
         if (name == null || name.length() == 0) {
             throw new EmptyNameException();
         } else {
             this.name = name;
-            this.duration = duration;
+            this.duration = new Duration();
             this.compositions = compositions;
-            this.numberOfCompositions = compositions.size();
+            for (Composition composition : compositions) {
+                this.duration = DurationManager.durationsSum(this.duration, composition.getDuration());
+            }
         }
     }
 
@@ -67,14 +67,6 @@ public class Disk {
         this.compositions = compositions;
     }
 
-    public int getNumberOfCompositions() {
-        return numberOfCompositions;
-    }
-
-    public void setNumberOfCompositions(int numberOfCompositions) {
-        this.numberOfCompositions = numberOfCompositions;
-    }
-
     public String listToString(List<Composition> compositions) {
         String result = "List: ";
         for (Composition composition : compositions) {
@@ -87,8 +79,7 @@ public class Disk {
     @Override
     public String toString() {
         return getClass().getSimpleName() + ": name = " + name + "; "
-                + duration + listToString(compositions)
-                + "; number of composition = " + numberOfCompositions + "; ";
+                + duration + listToString(compositions) + "; ";
     }
 
     @Override
@@ -102,7 +93,7 @@ public class Disk {
 
         Disk disk = (Disk) object;
         return name.equals(disk.name) && duration.equals(disk.duration)
-                && compositions.equals(disk.compositions) && numberOfCompositions == disk.numberOfCompositions;
+                && compositions.equals(disk.compositions);
     }
 
     @Override
@@ -113,7 +104,6 @@ public class Disk {
         result = prime * result + ((name != null) ? name.hashCode() : 0);
         result = prime * result + ((duration != null) ? duration.hashCode() : 0);
         result = prime * result + ((compositions != null) ? compositions.hashCode() : 0);
-        result = prime * result + numberOfCompositions;
 
         return result;
     }

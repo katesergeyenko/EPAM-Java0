@@ -1,10 +1,10 @@
 package by.epam.javatraining.katesergeyenko.tasks.maintask02.view.logger;
 
-public class ConsoleLogger implements Logger.Loggable {
+public class ConsoleLogger implements Loggable {
     private org.apache.log4j.Logger logger;
 
     public ConsoleLogger () {
-        //logger = org.apache.log4j.Logger.getLogger(name);
+        //logger = org.apache.log4j.Loggable.getLogger(name);
         logger = org.apache.log4j.Logger.getLogger("consoleLogger");
     }
 

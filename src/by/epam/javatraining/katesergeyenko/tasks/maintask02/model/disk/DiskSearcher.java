@@ -27,7 +27,7 @@ public class DiskSearcher {
         List<Composition> resultList = new LinkedList<>();
 
         for (Composition composition : disk.getCompositions()) {
-            if (musician.equals(composition.getName())) {
+            if (musician.equals(composition.getMusician())) {
                 resultList.add(composition);
             }
         }
@@ -45,7 +45,7 @@ public class DiskSearcher {
         return resultList;
     }
 
-    public List<Composition> searchCompositionByYDuration(Disk disk, Duration duration) {
+    public List<Composition> searchCompositionByDuration(Disk disk, Duration duration) {
         List<Composition> resultList = new LinkedList<>();
 
         for (Composition composition : disk.getCompositions()) {

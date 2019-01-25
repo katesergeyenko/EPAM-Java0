@@ -9,13 +9,11 @@ import java.util.Collections;
 
 public class DiskManager {
     public static boolean addComposition(Disk disk, Composition composition) throws NegativeDurationException, EmptyDurationException {
-        disk.setNumberOfCompositions(disk.getNumberOfCompositions() + 1);
         disk.setDuration(DurationManager.durationsSum(disk.getDuration(), composition.getDuration()));
         return disk.getCompositions().add(composition);
     }
 
     public static boolean removeComposition(Disk disk, Composition composition) throws NegativeDurationException, EmptyDurationException {
-        disk.setNumberOfCompositions(disk.getNumberOfCompositions() - 1);
         disk.setDuration(DurationManager.durationsSub(disk.getDuration(), composition.getDuration()));
         return disk.getCompositions().remove(composition);
     }

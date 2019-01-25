@@ -1,10 +1,10 @@
 package by.epam.javatraining.katesergeyenko.tasks.maintask02.view.logger;
 
-public class FileLogger implements Logger.Loggable {
+public class FileLogger implements Loggable {
     private org.apache.log4j.Logger logger;
 
     public FileLogger () {
-        //logger = org.apache.log4j.Logger.getLogger(name);
+        //logger = org.apache.log4j.Loggable.getLogger(name);
         logger = org.apache.log4j.Logger.getLogger("fileLogger");
         //logger.addAppender(new FileAppender());
     }

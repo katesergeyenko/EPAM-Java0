@@ -7,4 +7,5 @@ public enum MainInstrument {
     VIOLIN,
     VIOLONCELLO,
     DRUM,
+    FLUTE,
 }
